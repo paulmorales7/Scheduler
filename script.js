@@ -35,19 +35,19 @@ var currentTime = (moment().hour())
 
 
 $(".row").each(function () {
-    var timeId = $(this).find('textarea').attr('id');
+    // var timeId = $(this).find('textarea').attr('id');
     var idInteger = parseInt(timeId)
 
     // console.log(idInteger)
+    const $textarea = $(this).find("textarea");
 
-    if (idInteger > currentTime) {
-        idInteger.addClass(["past"])
-    }
     if (idInteger < currentTime) {
-        idInteger.addClass(["future"])
+        $textarea.addClass(["past"]);
+    }
+    if (idInteger > currentTime) {
+        $textarea.addClass(["future"]);
     }
     if (idInteger === currentTime) {
-        idInteger.addClass(["present"])
+        $textarea.addClass(["present"]);
     }
-
 });
